@@ -26,8 +26,12 @@ jobs:
       run: |
         pyinstaller --noconsole --onedir main.py
 
+    - name: Comprimir carpeta en ZIP
+      run: |
+        Compress-Archive -Path dist/main -DestinationPath Culke-Windows-Portable.zip
+
     - name: Subir el resultado como artefacto
       uses: actions/upload-artifact@v4
       with:
         name: Culke-Windows-Portable
-        path: dist/main/
+        path: Culke-Windows-Portable.zip
