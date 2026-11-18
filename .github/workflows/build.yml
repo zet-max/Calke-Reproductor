@@ -32,7 +32,7 @@ jobs:
         pyinstaller --noconsole --onefile --name Culke main.py
 
     - name: Subir el resultado como artefacto
-      uses: upload-artifact@v4
+      uses: actions/upload-artifact@v4
       with:
         name: Culke-Windows-Unico
         path: dist/Culke.exe
