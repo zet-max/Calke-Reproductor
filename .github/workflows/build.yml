@@ -20,7 +20,7 @@ jobs:
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
-        pip install customtkinter pygame yt-dlp pillow pyinstaller
+        pip install customtkinter pygame yt-dlp pillow imageio-ffmpeg pyinstaller
 
     - name: Generar ejecutable único con PyInstaller
       run: |
