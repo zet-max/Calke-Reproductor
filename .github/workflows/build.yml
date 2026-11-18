@@ -17,15 +17,10 @@ jobs:
       with:
         python-version: '3.12'
 
-    - name: Instalar FFmpeg automáticamente
-      uses: animus-oss/install-ffmpeg-action@v1
-      with:
-        version: 'latest'
-
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
-        pip install customtkinter pygame yt-dlp pillow pyinstaller
+        pip install customtkinter pygame yt-dlp pillow imageio-ffmpeg pyinstaller
 
     - name: Generar ejecutable único con PyInstaller
       run: |
