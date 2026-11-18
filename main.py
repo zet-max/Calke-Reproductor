@@ -5,6 +5,10 @@ import customtkinter as ctk
 import yt_dlp as y
 import os
 import json
+import imageio_ffmpeg
+
+# Obtiene la ruta de FFmpeg (se descarga automáticamente la primera vez si no está en el equipo)
+ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("gold")
@@ -342,6 +346,7 @@ class Descarga(ctk.CTkToplevel):
 
         ydl_opts = {
             "format": "bestaudio/best",
+            'ffmpeg_location': ffmpeg_path,
             "postprocessors": [{
                 "key": "FFmpegExtractAudio",
                 "preferredcodec": "mp3",
