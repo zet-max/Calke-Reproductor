@@ -22,16 +22,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install customtkinter pygame yt-dlp pillow pyinstaller
 
-    - name: Generar ejecutable con PyInstaller
+    - name: Generar ejecutable único con PyInstaller
       run: |
-        pyinstaller --noconsole --onedir main.py
-
-    - name: Comprimir carpeta en ZIP
-      run: |
-        Compress-Archive -Path dist/main -DestinationPath Culke-Windows-Portable.zip
+        pyinstaller --noconsole --onefile --name Culke main.py
 
     - name: Subir el resultado como artefacto
       uses: actions/upload-artifact@v4
       with:
-        name: Culke-Windows-Portable
-        path: Culke-Windows-Portable.zip
+        name: Culke-Windows-Unico
+        path: dist/Culke.exe
