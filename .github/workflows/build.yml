@@ -17,6 +17,11 @@ jobs:
       with:
         python-version: '3.12'
 
+    - name: Instalar FFmpeg automáticamente
+      uses: animus-oss/install-ffmpeg-action@v1
+      with:
+        version: 'latest'
+
     - name: Instalar dependencias
       run: |
         python -m pip install --upgrade pip
@@ -27,7 +32,7 @@ jobs:
         pyinstaller --noconsole --onefile --name Culke main.py
 
     - name: Subir el resultado como artefacto
-      uses: actions/upload-artifact@v4
+      uses: upload-artifact@v4
       with:
         name: Culke-Windows-Unico
         path: dist/Culke.exe
